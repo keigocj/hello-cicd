@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Copy index.html to EC2
         uses: appleboy/scp-action@v0.1.4
@@ -21,3 +21,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "index.html"
           target: "/var/www/html/"
+          overwrite: true
